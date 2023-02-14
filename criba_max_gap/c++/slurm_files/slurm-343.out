@@ -1,0 +1,21 @@
+Salida del programa Saludo1.c
+paralelo.cpp: In function ‘int main(int, char**)’:
+paralelo.cpp:95:26: error: ‘numero_hilos_’ was not declared in this scope
+     printf("%i ,%16g \n",numero_hilos_,t_fin-t_ini);
+                          ^
+ ----- Usando 1 hilos
+ ----- Usando 2 hilos
+ ----- Usando 3 hilos
+ ----- Usando 4 hilos
+ ----- Usando 5 hilos
+ ----- Usando 6 hilos
+ ----- Usando 7 hilos
+ ----- Usando 8 hilos
+ ----- Usando 9 hilos
+ ----- Usando 10 hilos
+ ----- Usando 11 hilos
+ ----- Usando 12 hilos
+ ----- Usando 13 hilos
+ ----- Usando 14 hilos
+ ----- Usando 15 hilos
+ ----- Usando 16 hilos

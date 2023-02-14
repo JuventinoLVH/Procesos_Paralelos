@@ -71,13 +71,14 @@ int main(int argc, char *argv[])
     }
     
     t_fin = omp_get_wtime();
-    cout<<"1 ,"<<(t_fin - t_ini);
+    printf("1 ,%16g \n" ,(t_fin-t_ini));
+
     // Imprimir la informacion
     //cout<<"Criba hasta el numero: "<<dimension<<'\n';
     //cout<<"Mayor gap: "<<maximo_gap<<'\n';
     //Imprimir_Primos(numeros_marcados,dimension);
     
-    system("pause");    
+       
     delete [] numeros_marcados;
     return 0;
 }

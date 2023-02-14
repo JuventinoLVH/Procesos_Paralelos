@@ -1,14 +1,8 @@
-/*
-    Autor: Luis Juventino Velasquez Hidalgo
-    Fecha: 13/02/23
-    Descripcion: implementacion de la Criba de Aristoteles con procesamiento 
-        paralelo, la finalidad es ver que tanto es el speedUp en relacion al modelo secuencial  
-*/
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/time.h>
-#include <omp.h>
+#include "Cronometro.h"
 
 using namespace std;
 
@@ -24,8 +18,10 @@ void Imprimir_Primos(bool numeros_marcados[], int &n){
 
 int main(int argc, char *argv[])
 {
+    // toma de tiempo inicial
+    Cronometro timer;
+    timer.Iniciar();
 
-    double t_ini,t_fin;
     // Se crea un arreglo
     int dimension = atoi(argv[1]);
     bool *numeros_marcados;
@@ -35,7 +31,7 @@ int main(int argc, char *argv[])
         exit (1);
     }
 
-    t_ini = omp_get_wtime();
+
     // Marcamos a todos los numeros, asumimos que todos los numeros son primos. 
     for(int i = 0 ; i <= dimension ; i++ ){
         numeros_marcados[i] = true;
@@ -56,6 +52,15 @@ int main(int argc, char *argv[])
     }while (index < dimension);
 
 
+    //Contamos el numero de primos 
+    int total_primos = 0;
+    for (int i = 2; i <= dimension; i++)
+    {
+        if (numeros_marcados[i])
+            ++total_primos;
+    }
+
+
     //Calculamos el maximo gap, se podria juntar con el ciclo anterior, 
     // pero no lo hago para practicar con la paralelisacion.
     ultimo_primo=2;
@@ -70,12 +75,13 @@ int main(int argc, char *argv[])
         }
     }
     
-    t_fin = omp_get_wtime();
-    cout<<"1 ,"<<(t_fin - t_ini);
+
     // Imprimir la informacion
-    //cout<<"Criba hasta el numero: "<<dimension<<'\n';
-    //cout<<"Mayor gap: "<<maximo_gap<<'\n';
-    //Imprimir_Primos(numeros_marcados,dimension);
+    cout<<"Tiempo tomado: "<<fixed << timer.get_tiempo()<<'\n';
+    cout<<"Criba hasta el numero: "<<dimension<<'\n';
+    cout<<"cantidad de numeros primos: "<<total_primos<<'\n';
+    cout<<"Mayor gap: "<<maximo_gap<<'\n';
+    Imprimir_Primos(numeros_marcados,dimension);
     
     system("pause");    
     delete [] numeros_marcados;

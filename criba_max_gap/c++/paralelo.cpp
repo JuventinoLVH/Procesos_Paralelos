@@ -92,13 +92,14 @@ int main(int argc, char *argv[])
     }
 
     t_fin = omp_get_wtime();
-    cout<<numero_hilos<<" ,"<<(t_fin - t_ini);
+    printf("%i ,%16g \n",numero_hilos,t_fin-t_ini);
+
+	cout<<numero_hilos<<" ,"<<(t_fin - t_ini)<<"\n";
     // Imprimir la informacion
     //cout<<"Criba hasta el numero: "<<dimension<<'\n';
     //cout<<"Mayor gap: "<<maximo_gap<<'\n';
     //Imprimir_Primos(numeros_marcados,dimension);
-    
-    system("pause");    
+        
     delete [] numeros_marcados;
     return 0;
 }

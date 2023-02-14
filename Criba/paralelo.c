@@ -1,4 +1,3 @@
-
 /*
   Criba de Eratóthenes
   programado por : José Alberto Leyva
