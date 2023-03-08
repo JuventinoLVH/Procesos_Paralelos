@@ -1,5 +1,0 @@
-Salida del programa saludo.c
-/tmp/ccW8NgXJ.o: In function `main._omp_fn.0':
-saludo.c:(.text+0x4c): undefined reference to `print'
-collect2: error: ld returned 1 exit status
-/var/spool/slurmd/job00310/slurm_script: line 12: ./saludo: No such file or directory

@@ -1,0 +1,27 @@
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Ejecucion con los parametros especificados en la tarea
+ > ID de los resultados: 05032023141424
+	•Tamano del experimento: 5000000
+	•Numero_hilos: 16
+	•Repeticiones por hilo: '10
+	•Resultados en: 'r05032023141424'
+======================= Compilando archivos :: 14:14 =======================
+ > Inicia la toma de tiempos
+--------------- corrida secuencial :: 14:14 ---------------
+~~~~~~~~~~~~~ Ejecucion con 1 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 2 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 3 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 4 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 5 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 6 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 7 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 8 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 9 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 10 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 11 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 12 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 13 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 14 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 15 hilos :: 14:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 16 hilos :: 14:14 ~~~~~~~~~~~~~
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

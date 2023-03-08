@@ -1,0 +1,62 @@
+#!/bin/bash
+# Autor: Luis Juventino Velasquez Hidalgo
+# Fecha: 2/19/2023
+#   Archivo para mostrar la diferencia entre los tiempos del programa
+
+#SBATCH --nodes=1
+#SBATCH --job-name=MPI
+#SBATCH --ntasks=8
+#SBATCH --time=1:00:00
+#SBATCH --partition=general
+#SBATCH --constraint=broadwell
+#SBATCH --mem-per-cpu=3200
+
+module load intel/oneAPI-2021
+
+#----------------------------------------------------------------------------
+#------------------------ Variables de entorno ------------------------------
+#----------------------------------------------------------------------------
+if [[ $# == 0 ]]
+then
+    mensaje="Ejecucion con los parametros requeridos en la tarea"
+else
+    mensaje=$1  
+fi
+
+
+#----------------------------------------------------------------------------
+#------------------------ Informacion de ejecucion --------------------------
+#----------------------------------------------------------------------------
+# El ID  de la corrida es el time stamp
+time_stamp=`date +"%d%m%Y%H%M%S"`   
+#Se declara el nombre del archivo en el cual se guardaran los archivos
+archivo_resultados="r$time_stamp"
+#Se imprime en pantalla la informacion pertinente
+echo "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
+echo " > Bitacora: $mensaje"
+echo " > ID de los resultados: $time_stamp"
+echo -e "\t•Resultados en: '$archivo_resultados'"
+
+
+
+#----------------------------------------------------------------------------
+#------------------------ Compilacion de archivos ---------------------------
+#----------------------------------------------------------------------------
+HORA=`date +"%H:%M"`
+echo -e "\v======================= Compilando archivos :: $HORA ======================="
+mpicc ./topologia_heap.c -fopenmp -o ejecucion_secuencial.exe
+
+
+#----------------------------------------------------------------------------
+#-------------------------- Ejecucion algoritmos ----------------------------
+#----------------------------------------------------------------------------
+echo -e "\v > Inicia la ejecucion de algoritmos"
+HORA=`date +"%H:%M"`
+echo "--------------- corrida secuencial :: $HORA ---------------"
+mpirun ./ejecucion_secuencial.exe $tamano_muestra $repeticion_por_hilo >> $archivo_resultados
+
+#----------------------------------------------------------------------------
+#----------------------------- Fin del archivo ------------------------------
+#----------------------------------------------------------------------------
+HORA=`date +"%H:%M"`
+echo -e "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░"

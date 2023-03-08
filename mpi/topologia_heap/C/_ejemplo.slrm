@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#SBATCH --nodes=1
+#SBATCH --job-name=MPI
+#SBATCH --ntasks=8
+#SBATCH --time=1:00:00
+#SBATCH --partition=general
+#SBATCH --constraint=broadwell
+#SBATCH --mem-per-cpu=3200
+
+module load intel/oneAPI-2021
+mpicc ./topologia_heap.c  -o ejecucion_paralelo.exe
+mpirun  ./ejecucion_paralelo.exe  
