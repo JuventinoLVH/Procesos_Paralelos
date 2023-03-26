@@ -1,0 +1,22 @@
+	 Intel oneAPI 2021
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Prueba depuracion con todo pero sin duplicar 
+ > ID de los resultados: 24_03_2023_180013
+	•Tamano muesstra: '200'
+	•Numero de hilos: '5'
+	•Resultados en: 'r_24_03_2023_180013'
+======================= Compilando archivos :: 18:00 =======================
+_______________ Compilando el archivo secuencial _______________
+----------------------------------------------------------------
+
+________________ Compilando el archivo paralelo ________________
+----------------------------------------------------------------
+
+ > Inicia la corrida de ejecutables
+--------------- corrida secuencial :: 18:00 ---------------
+~~~~~~~~~~~~~ Ejecucion con 1 hilos :: 18:00 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 2 hilos :: 18:00 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 3 hilos :: 18:00 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 4 hilos :: 18:00 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 5 hilos :: 18:00 ~~~~~~~~~~~~~
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

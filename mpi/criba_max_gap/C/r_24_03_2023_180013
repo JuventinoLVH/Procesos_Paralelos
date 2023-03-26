@@ -1,0 +1,21 @@
+1 ,0.000000 ,14 
+proceso: 0, primo_anterior:98 ,block_index: 99 ,block_value: 3 ,primer_primo: 0 
+ 1,   0.000032, 7
+proceso: 0, primo_anterior:49 ,block_index: 50 ,block_value: 3 ,primer_primo: 0 
+proceso: 1, primo_anterior:48 ,block_index: 49 ,block_value: 103 ,primer_primo: 0 
+ 2,   0.000061, 54
+proceso: 0, primo_anterior:32 ,block_index: 33 ,block_value: 3 ,primer_primo: 0 
+proceso: 1, primo_anterior:31 ,block_index: 33 ,block_value: 69 ,primer_primo: 1 
+proceso: 2, primo_anterior:32 ,block_index: 33 ,block_value: 135 ,primer_primo: 1 
+ 3,   0.000071, 104
+proceso: 0, primo_anterior:22 ,block_index: 25 ,block_value: 3 ,primer_primo: 0 
+proceso: 1, primo_anterior:24 ,block_index: 25 ,block_value: 53 ,primer_primo: 0 
+proceso: 2, primo_anterior:24 ,block_index: 25 ,block_value: 103 ,primer_primo: 0 
+proceso: 3, primo_anterior:23 ,block_index: 24 ,block_value: 153 ,primer_primo: 2 
+ 4,   0.000083, 129
+proceso: 0, primo_anterior:19 ,block_index: 20 ,block_value: 3 ,primer_primo: 0 
+proceso: 1, primo_anterior:18 ,block_index: 20 ,block_value: 43 ,primer_primo: 0 
+proceso: 2, primo_anterior:15 ,block_index: 20 ,block_value: 83 ,primer_primo: 0 
+proceso: 3, primo_anterior:17 ,block_index: 20 ,block_value: 123 ,primer_primo: 2 
+proceso: 4, primo_anterior:18 ,block_index: 19 ,block_value: 163 ,primer_primo: 0 
+ 5,   0.000085, 146
