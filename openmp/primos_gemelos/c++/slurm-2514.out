@@ -1,0 +1,33 @@
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Mas datos, mas rep
+ > ID de los resultados: _20_03_2023_093248
+	•Tamano del experimento: 50000000
+	•Numero_hilos: 16
+	•Repeticiones por hilo: 24
+	•Resultados en: 'r_20_03_2023_093248'
+======================= Compilando archivos :: 09:32 =======================
+_______________ Compilando el archivo secuencial _______________
+----------------------------------------------------------------
+
+_______________ Compilando el archivo secuencial _______________
+----------------------------------------------------------------
+
+ > Inicia la toma de tiempos
+--------------- corrida secuencial :: 09:32 ---------------
+~~~~~~~~~~~~~ Ejecucion con 1 hilos :: 09:33 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 2 hilos :: 09:45 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 3 hilos :: 09:53 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 4 hilos :: 09:58 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 5 hilos :: 10:02 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 6 hilos :: 10:05 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 7 hilos :: 10:08 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 8 hilos :: 10:10 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 9 hilos :: 10:12 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 10 hilos :: 10:14 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 11 hilos :: 10:16 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 12 hilos :: 10:17 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 13 hilos :: 10:19 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 14 hilos :: 10:20 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 15 hilos :: 10:22 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 16 hilos :: 10:23 ~~~~~~~~~~~~~
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

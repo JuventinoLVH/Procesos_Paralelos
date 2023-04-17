@@ -5,7 +5,7 @@
 
 #SBATCH --nodes=1
 #SBATCH --job-name=MPI
-#SBATCH --ntasks=8
+#SBATCH --ntasks=10
 #SBATCH --time=1:00:00
 #SBATCH --partition=general
 #SBATCH --constraint=broadwell
@@ -16,11 +16,13 @@ module load intel/oneAPI-2021
 #----------------------------------------------------------------------------
 #------------------------ Variables de entorno ------------------------------
 #----------------------------------------------------------------------------
-if [[ $# == 0 ]]
+if [[ $# != 2 ]]
 then
     mensaje="Ejecucion con los parametros requeridos en la tarea"
+    procesadores=9
 else
     mensaje=$1  
+    procesadores=$2
 fi
 
 
@@ -28,12 +30,13 @@ fi
 #------------------------ Informacion de ejecucion --------------------------
 #----------------------------------------------------------------------------
 # El ID  de la corrida es el time stamp
-time_stamp=`date +"%d%m%Y%H%M%S"`   
+time_stamp=`date +"_%d_%m_%Y_%H%M%S"`   
 #Se declara el nombre del archivo en el cual se guardaran los archivos
 archivo_resultados="r$time_stamp"
 #Se imprime en pantalla la informacion pertinente
 echo "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
 echo " > Bitacora: $mensaje"
+echo " > Numero de procesadores: $procesadores"
 echo " > ID de los resultados: $time_stamp"
 echo -e "\t•Resultados en: '$archivo_resultados'"
 
@@ -44,19 +47,22 @@ echo -e "\t•Resultados en: '$archivo_resultados'"
 #----------------------------------------------------------------------------
 HORA=`date +"%H:%M"`
 echo -e "\v======================= Compilando archivos :: $HORA ======================="
-mpicc ./topologia_heap.c -fopenmp -o ejecucion_secuencial.exe
+echo "_______________ Compilando el archivo secuencial _______________"
+mpicc ./topologia_heap.c -o ejecucion_secuencial.exe
+echo -e "----------------------------------------------------------------\n"
 
 
 #----------------------------------------------------------------------------
 #-------------------------- Ejecucion algoritmos ----------------------------
 #----------------------------------------------------------------------------
-echo -e "\v > Inicia la ejecucion de algoritmos"
+echo -e "\v > Inicia la corrida de ejecutables"
+
 HORA=`date +"%H:%M"`
 echo "--------------- corrida secuencial :: $HORA ---------------"
-mpirun ./ejecucion_secuencial.exe $tamano_muestra $repeticion_por_hilo >> $archivo_resultados
+mpirun -np=$procesadores ./ejecucion_secuencial.exe >> $archivo_resultados
+
 
 #----------------------------------------------------------------------------
 #----------------------------- Fin del archivo ------------------------------
 #----------------------------------------------------------------------------
-HORA=`date +"%H:%M"`
 echo -e "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░"

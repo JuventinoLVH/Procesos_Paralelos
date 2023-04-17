@@ -24,7 +24,7 @@ direccion_salida = direccion_resultados[:-16]
 #------------------------ Se prepara la informacion  ------------------------
 #----------------------------------------------------------------------------
 #Datos en crudo
-tiempos_ejecucion = pd.read_csv(direccion_resultados , sep=',',  names=['nh','tiempo'])
+tiempos_ejecucion = pd.read_csv(direccion_resultados , sep=',',  names=['nh','tiempo','aux'])
 
 #Datos para tiempos de ejecuccion
 tiempo_secuencial = tiempos_ejecucion['tiempo'][0]
@@ -73,8 +73,8 @@ with plt.style.context('seaborn-darkgrid'):
 #----------------------------------------------------------------------------
 #------------------------- Se guardan las graficas --------------------------
 #----------------------------------------------------------------------------
-direccion_grafica_resultados = direccion_salida+'\\resultado_tiempo'
-direccion_grafica_speedup = direccion_salida+'\\resultado_speedup'
+direccion_grafica_resultados = '.\\resultado_tiempo'
+direccion_grafica_speedup = '.\\resultado_speedup'
 print(" > Direccion de la grafica con los tiempos: ")
 print("\t",direccion_grafica_resultados)
 print(" > Direccion de la grafica con el speedup: ")

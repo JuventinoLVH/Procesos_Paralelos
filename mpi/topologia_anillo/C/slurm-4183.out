@@ -1,0 +1,14 @@
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Ejecucion con los parametros requeridos en la tarea
+ > Numero de procesadores: 9
+ > ID de los resultados: _13_04_2023_103939
+	•Resultados en: 'r_13_04_2023_103939'
+Version MPI /opt/intel/oneapi/mpi/2021.1.1/bin/mpicc
+======================= Compilando archivos :: 10:39 =======================
+_______________ Compilando el archivo secuencial _______________
+----------------------------------------------------------------
+
+ > Inicia la corrida de ejecutables
+--------------- corrida secuencial :: 10:39 ---------------
+Version de mpirun /opt/intel/oneapi/mpi/2021.1.1/bin/mpirun
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

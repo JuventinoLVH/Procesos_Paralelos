@@ -1,0 +1,20 @@
+	 Intel oneAPI 2021
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Ejecucion con los parametros requeridos en la tarea
+ > Numero de procesadores: 9
+ > ID de los resultados: _12_04_2023_150847
+	•Resultados en: 'r_12_04_2023_150847'
+======================= Compilando archivos :: 15:08 =======================
+_______________ Compilando el archivo secuencial _______________
+----------------------------------------------------------------
+
+ > Inicia la corrida de ejecutables
+--------------- corrida secuencial :: 15:08 ---------------
+[mpiexec@nodo17] check_exit_codes (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:117): unable to run bstrap_proxy on nodo17 (pid 126856, exit code 42752)
+[mpiexec@nodo17] poll_for_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:159): check exit codes error
+[mpiexec@nodo17] HYD_dmx_poll_wait_for_proxy_event (../../../../../src/pm/i_hydra/libhydra/demux/hydra_demux_poll.c:212): poll for event error
+[mpiexec@nodo17] HYD_bstrap_setup (../../../../../src/pm/i_hydra/libhydra/bstrap/src/intel/i_hydra_bstrap.c:772): error waiting for event
+[mpiexec@nodo17] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1955): error setting up the boostrap proxies
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+

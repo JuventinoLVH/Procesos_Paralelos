@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
         }       
     }
     t_fin = omp_get_wtime();
-    printf("%i ,%16g \n", numero_hilos, (t_fin - t_ini)/repeticiones);
+    printf("%i ,%16g ,%i \n", numero_hilos, (t_fin - t_ini)/repeticiones,maximo_gap);
     // Imprimir la informacion
     //cout<<"Criba hasta el numero: "<<dimension<<'\n';
     //cout<<"Mayor gap: "<<maximo_gap<<'\n';

@@ -1,0 +1,13 @@
+	 Intel oneAPI 2021
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Ejecucion con los parametros requeridos en la tarea
+ > Numero de procesadores: 9
+ > ID de los resultados: _20_03_2023_081728
+	•Resultados en: 'r_20_03_2023_081728'
+======================= Compilando archivos :: 08:17 =======================
+_______________ Compilando el archivo secuencial _______________
+----------------------------------------------------------------
+
+ > Inicia la corrida de ejecutables
+--------------- corrida secuencial :: 08:17 ---------------
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

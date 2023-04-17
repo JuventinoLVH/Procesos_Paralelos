@@ -1,0 +1,100 @@
+	 Intel oneAPI 2021
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Ejecucion con los parametros requeridos en la tarea
+ > ID de los resultados: 12_04_2023_085424
+	•Tamano muesstra: '5000000'
+	•Numero de hilos: '16'
+	•Resultados en: 'r_12_04_2023_085424'
+======================= Compilando archivos :: 08:54 =======================
+_______________ Compilando el archivo secuencial _______________
+----------------------------------------------------------------
+
+________________ Compilando el archivo paralelo ________________
+----------------------------------------------------------------
+
+________________ Compilando el archivo de datos ________________
+----------------------------------------------------------------
+
+ > Inicia la corrida de ejecutables
+--------------- corrida secuencial :: 08:54 ---------------
+~~~~~~~~~~~~~ Ejecucion con 1 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 2 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 3 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 4 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 5 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 6 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 7 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 8 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 9 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 10 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 11 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 12 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 13 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 14 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 15 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+~~~~~~~~~~~~~ Ejecucion con 16 hilos :: 08:54 ~~~~~~~~~~~~~
+[mpiexec@nodo16] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:91): unrecognized argument oversubscribe
+[mpiexec@nodo16] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@nodo16] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1350): error parsing input array
+[mpiexec@nodo16] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1755): error parsing parameters
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

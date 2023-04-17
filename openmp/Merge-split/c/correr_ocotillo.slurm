@@ -12,60 +12,85 @@
 # Fecha: 2/19/2023
 #   Archivo para mostrar la diferencia entre los tiempos del programa 
 #   criba_max_gap con diferentes hilos
-#   Primer parametro: tamano de muestra
-#   Segundo parametro: numero de hilos a usar
-#   Tercer parametro: Una bandera que dice si se crean los ejecutables 
+#   Primer parametro: Bitacora que se imprime en el slurm
+#   Segundo parametro:  Tamaño de muestra
+#   Tercer parametro: Numero de hilos a usar 
 
-
-#Variables de entorno...
-tamano_muestra=$1
-numero_hilos=$2
-mensaje=$3
-
-time_stamp=`date +"%d%m%Y%H%M%S"`
-archivo_resultados="resultados$time_stamp"
-
-
-
-# Solamente compilamos si se lo pedmios desde bach
-if [[ $# > 2 ]]
+#----------------------------------------------------------------------------
+#------------------------ Variables de entorno ------------------------------
+#----------------------------------------------------------------------------
+if [[ $# != 3 ]]
 then
-    g++ ./secuencial.c -fopenmp -o ejecucion_secuencial.exe
-    g++ ./paralelo.c -fopenmp -o ejecucion_paralelo.exe
-    g++ ./generar_numeros.c -fopenmp -o generar_numeros.exe
+    mensaje="Ejecucion con los parametros requeridos en la tarea"
+    numero_hilos=16
+    tamano_muestra=5000000
+    
+else
+#Primero mensaje, despues el tamano y por ultimo, la cantidad de hilos
+    mensaje=$1  
+    tamano_muestra=$2
+    numero_hilos=$3
 fi
 
+#----------------------------------------------------------------------------
+#------------------------ Informacion de ejecucion --------------------------
+#----------------------------------------------------------------------------
+# El ID  de la corrida es el time stamp
+time_stamp=`date +"%d.%m.%Y-%H_%M_%S"`   
+archivo_resultados="r_$time_stamp"
+
+#Se imprime en pantalla la informacion pertinente
+echo "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
+echo " > Bitacora: $mensaje"
+echo " > ID de los resultados: $time_stamp"
+echo -e "\t•Tamano muesstra: '$tamano_muestra'"
+echo -e "\t•Numero de hilos: '$numero_hilos'"
+echo -e "\t•Resultados en: '$archivo_resultados'"
 
 
-#Corremos los programas y tomamos tiempo
-echo "Corriendo el programa ..."
-echo "Capsula: $mensaje "
-echo "Tamano del experimento: $tamano_muestra"
-echo "numero_hilos: $numero_hilos"
-echo "ID de los resultados: $time_stamp"
+#----------------------------------------------------------------------------
+#------------------------ Compilacion de archivos ---------------------------
+#----------------------------------------------------------------------------
+HORA=`date +"%H:%M:%S"`
+echo -e "\v======================= Compilando archivos :: $HORA ======================="
 
-DIA=`date +"%d/%m/%Y"`
-HORA=`date +"%H:%M"`
 
-archivo_con_numeros="$tamano_muestra_$time_stamp"
-echo "Generando numeros..."
-./generar_numeros.exe $archivo_con_numeros $tamano_muestra
+echo "_______________ Compilando el archivo secuencial _______________"
+g++ ./secuencial.c -fopenmp -o ejecucion_secuencial.exe 
+echo -e "----------------------------------------------------------------\n"
 
-echo "La corrida inicio a las: $DIA $HORA!"
-./ejecucion_secuencial.exe $archivo_con_numeros >> $archivo_resultados
+echo "________________ Compilando el archivo paralelo ________________"
+g++ ./paralelo.c -fopenmp -o ejecucion_paralela.exe
+echo -e "----------------------------------------------------------------\n"
+
+echo "________________ Compilando el archivo de datos ________________"
+g++ generar_numeros.c -o ejecutar_generar.exe
+echo -e "----------------------------------------------------------------\n"
+
+
+
+#----------------------------------------------------------------------------
+#-------------------------- Ejecucion algoritmos ----------------------------
+#----------------------------------------------------------------------------
+echo "----------------- Generando datos :: $HORA ----------------"
+./ejecutar_generar.exe 'datos' $tamano_muestra >> $archivo_resultados
+
+echo -e "\v > Inicia la corrida de ejecutables"
+#------------------------------- Secuencial ---------------------------------
+HORA=`date +"%H:%M:%S"`
+echo "--------------- corrida secuencial :: $HORA ---------------"
+./ejecucion_secuencial.exe 'datos' >> $archivo_resultados
+
+#-------------------------------- Paralelos ---------------------------------
 for i in $(seq 1 $numero_hilos)
 do
-    echo " --- Ejecucion con $i hilos"
-    ./ejecucion_paralelo.exe $i $archivo_con_numeros >> $archivo_resultados
+    HORA=`date +"%H:%M:%S"`
+    echo "~~~~~~~~~~~~~ Ejecucion con $i hilos :: $HORA ~~~~~~~~~~~~~"
+    ./ejecucion_paralela.exe $i 'datos' >> $archivo_resultados
 done
 
 
-DIA=`date +"%d/%m/%Y"`
-HORA=`date +"%H:%M"`
-echo "La corrida termino a las: $DIA $HORA!"
-#Creamos los plots con un archivo en python No funciona en choya :( 
-#python ./graficar.py $PWD $archivo_resultados $tamano_muestra
-
-
-
-
+#----------------------------------------------------------------------------
+#----------------------------- Fin del archivo ------------------------------
+#----------------------------------------------------------------------------
+echo -e "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░"

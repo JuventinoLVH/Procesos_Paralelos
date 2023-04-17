@@ -86,7 +86,7 @@ int main (int argc, char *argv[]){
     MPI_Status status;
     
     int fuente, destino, indice_local, limite_local;
-    int primo_anterior,primer_primo,siguiente_primo;
+    int primo_anterior,primer_primo=-1,siguiente_primo;
     int max_gap=0;    
     int gap_mayor=0;
 
@@ -165,74 +165,74 @@ int main (int argc, char *argv[]){
             for (k = index; k <= high_block_index; k+= current_prime)
                 primes[k] = 0;
         }
+    }
         
 
 /*#############################################################################
   ########################### Aqui empieza mi codigo ##########################
   ###########################################################################*/
-
-        //----------------------------------------------------------------------------
-        /* Encontramos el primer primo
-            \primes Arreglo booleano LOCAL de numeros primos, 1 := primo
-            \low_bloc_index indice local. Tiene rango [0 , size|hig_block_index]
-        */
-        for (low_block_index; !primes[low_block_index]; low_block_index++) {
-        };
+    int iterador_local = 0;
+    //----------------------------------------------------------------------------
+    /* Encontramos el primer primo
+        \primes Arreglo booleano LOCAL de numeros primos, 1 := primo Tiene rango [0,size)
+        \low_bloc_index indice local. Tiene rango [0 , size|hig_block_index]
+    */
+    for (iterador_local; !primes[iterador_local]; iterador_local++) {
+    };
+    
+    //----------------------------------------------------------------------------
+    /* Calculamos el max gap, en el algoritmo se itera de 2 en 2, por lo que la 
+        diferencia entre el primo anterior y el nuevo primo se multiplica por 2
         
-        //----------------------------------------------------------------------------
-        /* Calculamos el max gap, en el algoritmo se itera de 2 en 2, por lo que la 
-            diferencia entre el primo anterior y el nuevo primo se multiplica por 2
-            
-            \primer_primo Se deve de mandar el el primer primo al procesador anterior
-            \primo_anterior Variable necesaria para calcular el max gap
+        \primer_primo Se deve de mandar el el primer primo al procesador anterior
+        \primo_anterior Variable necesaria para calcular el max gap
 
-        */
-        primer_primo = low_block_index;
-        primo_anterior = low_block_index;
-        for (low_block_index; low_block_index <= high_block_index; low_block_index++)
-        {
-            if (primes[low_block_index]){
-                max_gap = _MAX(max_gap,2*(low_block_index - primo_anterior));
-                primo_anterior = low_block_index;
-            } 
-        }
+    */
+    primer_primo = iterador_local;
+    primo_anterior = iterador_local;
+    for (iterador_local; iterador_local < size; iterador_local++)
+    {
 
-        //----------------------------------------------------------------------------
-        /* Se envia el primer primo, por si el max gap esta 'entre dos bloques'
-            \low_block_value Inicio del del bloque original es 
-                de la forma: (dimencion*id / procesos))
-            \loc_proc_value No estoy seguro, la uso como variable auxiliar
-            \MPI_Send Mando al bloque anterior el valor 'fixeado' del primer primo 
-        */
-        if(id != 0)
-        {
-            low_proc_value = low_block_value + (primer_primo*2);
-            // puntero a la variable a mandar, longitud de la variable, tipo, ID destino, equiqueta , Recibidor
-            MPI_Send( &low_proc_value, 1, MPI_INT, id-1, 5, MPI_COMM_WORLD);
-        }
-
-
-        //----------------------------------------------------------------------------
-        /* Se calcula el max_gap entre el valor encontrado y el valor del 
-            siguiente primo despues del bloque
-
-            \siguiente primo Es equivalente al 'low_proc_value' del arriba 
-            \MPI_Recv El valor del primer primo despues del bloque 
-        */
-        if(id != p-1 )
-        {
-            MPI_Recv( &siguiente_primo, 1, MPI_INT, id+1, 5, MPI_COMM_WORLD, &status );
-            max_gap = _MAX( (siguiente_primo - ((primo_anterior*2)+low_block_value)) , max_gap);
-        }
+        if (primes[iterador_local]){
+            /*
+            max_gap = _MAX(max_gap,2*(low_block_index - primo_anterior));
+            primo_anterior = low_block_index;  
+            */
+            max_gap = _MAX(max_gap,(iterador_local - primo_anterior));
+            primo_anterior = iterador_local;                
+        } 
     }
 
+    //----------------------------------------------------------------------------
+    /* Se envia el primer primo, por si el max gap esta 'entre dos procesos'
+        \MPI_Send Mando al bloque anterior el indice del primer primo 
+    */
+    if(id != 0)
+    {
+        // puntero a la variable a mandar, longitud de la variable, tipo, ID destino, equiqueta , Recibidor
+        MPI_Send( &primer_primo, 1, MPI_INT, id-1, 5, MPI_COMM_WORLD);
+    }
+
+    //----------------------------------------------------------------------------
+    /* Se calcula el max_gap entre el valor encontrado y el valor del 
+        siguiente primo despues del bloque
+        \siguiente_primo Es el indice del prier primo del proceso, para poder 
+                            usarlo se le suma el size del bloque local. se suma 
+                            size tal cual porque el arreglo tiene tamaño size y por
+                            ende el rango del ciclo es de [0,size)
+        \MPI_Recv El valor del primer primo despues del bloque 
+    */
+    if(id != p-1 )
+    {
+        MPI_Recv( &siguiente_primo, 1, MPI_INT, id+1, 5, MPI_COMM_WORLD, &status );
+        max_gap = _MAX( (siguiente_primo+size - primo_anterior ), max_gap);
+    }
+    
     // Reduce de cajon
     MPI_Reduce(&max_gap, &gap_mayor, 1, MPI_INT, MPI_MAX, 0, MPI_COMM_WORLD); 
-
 /*#############################################################################
   ########################### Aqui termina mi codigo ##########################
   ###########################################################################*/
-
       
     free(primes);
     free(small_primes);
@@ -242,8 +242,9 @@ int main (int argc, char *argv[]){
     elapsed_time += MPI_Wtime();
     if (!id) {
         //printf ("Total prime count is %d\n", global_count);
-        printf (" %d, %10.6f, %d\n", p, elapsed_time,gap_mayor);
+        printf (" %d, %10.6f, %d\n", p, elapsed_time,gap_mayor*2);
     }
+    
     MPI_Finalize();
     return 0;
 }

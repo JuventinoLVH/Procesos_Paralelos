@@ -1,0 +1,17 @@
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Ejecucion con los parametros requeridos en la tarea
+ > Numero de procesadores: 9
+ > ID de los resultados: _13_04_2023_103133
+	•Resultados en: 'r_13_04_2023_103133'
+Version MPI /opt/intel/oneapi/mpi/2021.1.1/bin/mpicc
+======================= Compilando archivos :: 10:31 =======================
+_______________ Compilando el archivo secuencial _______________
+----------------------------------------------------------------
+
+ > Inicia la corrida de ejecutables
+--------------- corrida secuencial :: 10:31 ---------------
+Version de mpirun /opt/intel/oneapi/mpi/2021.1.1/bin/mpirun
+srun: error: Task launch for StepId=4181.0 failed on node nodo16: Job credential expired
+srun: error: Application launch failed: Job credential expired
+srun: Job step aborted
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

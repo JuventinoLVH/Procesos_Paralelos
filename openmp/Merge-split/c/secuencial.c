@@ -2,7 +2,19 @@
 #include <stdlib.h>
 #include <time.h>
 
-const int REPETICIONES = 120;
+char Comprobar(int *arreglo, int tamano)
+{
+    int i;
+    for(i=1 ; i < tamano ; ++i)
+    {
+        if(arreglo[i-1] > arreglo[i])
+        {
+            return 'E';
+        }
+    }
+    return 's';
+}
+
 int read_array(char* fname, int **arr) {
     FILE *myFile;
     int i,n;
@@ -38,11 +50,11 @@ int main(int argc, char*argv[]) {
     clock_t start = clock();
     
     int rep;
-    for(rep = 0 ; rep < REPETICIONES ; ++rep)
-        qsort(numbers, n, sizeof(int), funcionQueCompara);
+    qsort(numbers, n, sizeof(int), funcionQueCompara);
+    
     seconds = (float)(clock() - start) / CLOCKS_PER_SEC;
 
 
-    printf("1, %.10f", seconds);
+    printf("1, %.10f ,%c\n", seconds, Comprobar(numbers,n));
     return 0;
 }
