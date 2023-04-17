@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#BATCH --nodes=4            
+#SBATCH --job-name=OpenMP   
+#SBATCH --ntasks-per-node=4
+#SBATCH --time=1:00:00        
+#SBATCH --partition=general  
+
+export OMP_NUM_THREADS=10
+echo "Salida del programa ejemplo1b.c"
+gcc -fopenmp ejemplo1b.c -o saludando
+./saludando

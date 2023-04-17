@@ -1,0 +1,24 @@
+Corriendo el programa:
+Time_stamp: 19022023153147
+ --- Ejecucion con 1 hilos
+ --- Ejecucion con 2 hilos
+ --- Ejecucion con 3 hilos
+ --- Ejecucion con 4 hilos
+ --- Ejecucion con 5 hilos
+ --- Ejecucion con 6 hilos
+ --- Ejecucion con 7 hilos
+ --- Ejecucion con 8 hilos
+ --- Ejecucion con 9 hilos
+ --- Ejecucion con 10 hilos
+ --- Ejecucion con 11 hilos
+ --- Ejecucion con 12 hilos
+ --- Ejecucion con 13 hilos
+ --- Ejecucion con 14 hilos
+ --- Ejecucion con 15 hilos
+/var/spool/slurm/job00015/slurm_script: line 39: ./ejecucion_paralelo.exe: cannot execute binary file
+ --- Ejecucion con 16 hilos
+/var/spool/slurm/job00015/slurm_script: line 39: ./ejecucion_paralelo.exe: cannot execute binary file
+Traceback (most recent call last):
+  File "./graficar.py", line 1, in <module>
+    import pandas as pd
+ImportError: No module named pandas

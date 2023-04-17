@@ -1,0 +1,6 @@
+Corriendo el programa. ID de los resultados: 21022023154910
+La corrida inicio a las: 21/02/2023 15:49!
+/var/spool/slurm/job00041/slurm_script: line 40: ./ejecucion_secuencial.exe: cannot execute binary file
+ --- Ejecucion con 1 hilos
+/var/spool/slurm/job00041/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+La corrida termino a las: 21/02/2023 15:49!

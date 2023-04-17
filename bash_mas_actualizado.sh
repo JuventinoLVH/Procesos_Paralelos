@@ -5,7 +5,10 @@
 #   Solo funciona en ocotillo, deberia poner tambien el del choya
 
 # Para choya?
-#SBATCH --ntasks-per-node=17    #maximo 40 ? 
+#SBATCH --nodes=5           
+#SBATCH --job-name=OpenMP    
+#SBATCH --ntasks-per-node=4
+#SBATCH --time=1:00:00
 
 #Ocotillo
 #SBATCH --nodes=1

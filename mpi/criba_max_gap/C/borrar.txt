@@ -1,4 +1,0 @@
-#!/bin/bash
-
-rm slurm-*
-rm r_*

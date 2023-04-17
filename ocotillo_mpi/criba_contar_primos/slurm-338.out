@@ -1,0 +1,63 @@
+Lmod has detected the following error: The following module(s) are unknown:
+"intel/oneAPI-2021"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "intel/oneAPI-2021"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Ejecucion con los parametros requeridos en la tarea
+ > ID de los resultados: 04_04_2023_114841
+	•Tamano muesstra: '5000000'
+	•Numero de hilos: '16'
+	•Resultados en: 'r_04_04_2023_114841'
+======================= Compilando archivos :: 11:48 =======================
+_______________ Compilando el archivo secuencial _______________
+/var/spool/slurm/job00338/slurm_script: line 53: mpicc: command not found
+----------------------------------------------------------------
+
+________________ Compilando el archivo paralelo ________________
+/var/spool/slurm/job00338/slurm_script: line 57: mpicc: command not found
+----------------------------------------------------------------
+
+ > Inicia la corrida de ejecutables
+--------------- corrida secuencial :: 11:48 ---------------
+/var/spool/slurm/job00338/slurm_script: line 69: ./ejecucion_secuencial.exe: No such file or directory
+~~~~~~~~~~~~~ Ejecucion con 1 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 2 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 3 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 4 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 5 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 6 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 7 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 8 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 9 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 10 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 11 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 12 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 13 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 14 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 15 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+~~~~~~~~~~~~~ Ejecucion con 16 hilos :: 11:48 ~~~~~~~~~~~~~
+/var/spool/slurm/job00338/slurm_script: line 76: mpirun: command not found
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

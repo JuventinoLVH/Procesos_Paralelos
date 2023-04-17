@@ -1,0 +1,33 @@
+Corriendo el programa. ID de los resultados: 19022023155519
+La corrida inicio a las: 19/02/2023 15:55!
+ --- Ejecucion con 1 hilos
+ --- Ejecucion con 2 hilos
+ --- Ejecucion con 3 hilos
+ --- Ejecucion con 4 hilos
+ --- Ejecucion con 5 hilos
+ --- Ejecucion con 6 hilos
+ --- Ejecucion con 7 hilos
+/var/spool/slurm/job00020/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+ --- Ejecucion con 8 hilos
+/var/spool/slurm/job00020/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+ --- Ejecucion con 9 hilos
+/var/spool/slurm/job00020/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+ --- Ejecucion con 10 hilos
+/var/spool/slurm/job00020/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+ --- Ejecucion con 11 hilos
+/var/spool/slurm/job00020/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+ --- Ejecucion con 12 hilos
+/var/spool/slurm/job00020/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+ --- Ejecucion con 13 hilos
+/var/spool/slurm/job00020/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+ --- Ejecucion con 14 hilos
+/var/spool/slurm/job00020/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+ --- Ejecucion con 15 hilos
+/var/spool/slurm/job00020/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+ --- Ejecucion con 16 hilos
+/var/spool/slurm/job00020/slurm_script: line 44: ./ejecucion_paralelo.exe: cannot execute binary file
+La corrida termino a las: 19/02/2023 15:58!
+Traceback (most recent call last):
+  File "./graficar.py", line 1, in <module>
+    import pandas as pd
+ImportError: No module named pandas
