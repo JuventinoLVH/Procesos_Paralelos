@@ -29,7 +29,7 @@ fi
 # El ID  de la corrida es el time stamp
 time_stamp=`date +"%d%m%Y%H%M%S"`   
 #Se declara el nombre del archivo en el cual se guardaran los archivos
-archivo_resultados="r$time_stamp"
+archivo_resultados="r$time_stamp.bin"
 #Se imprime en pantalla la informacion pertinente
 echo "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
 echo " > Bitacora: $mensaje"

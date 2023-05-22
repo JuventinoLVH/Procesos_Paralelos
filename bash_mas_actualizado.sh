@@ -44,7 +44,7 @@ fi
 #----------------------------------------------------------------------------
 # El ID  de la corrida es el time stamp
 time_stamp=`date +"%d.%m.%Y-%H_%M_%S"`
-archivo_resultados="r_$time_stamp"
+archivo_resultados="r_$time_stamp.bin"
 
 #Se imprime en pantalla la informacion pertinente
 echo "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
