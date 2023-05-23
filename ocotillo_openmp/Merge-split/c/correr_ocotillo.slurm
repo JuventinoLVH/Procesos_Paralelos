@@ -23,7 +23,7 @@ if [[ $# != 3 ]]
 then
     mensaje="Ejecucion con los parametros requeridos en la tarea"
     numero_hilos=16
-    tamano_muestra=5000000
+    tamano_muestra=10000000
     
 else
 #Primero mensaje, despues el tamano y por ultimo, la cantidad de hilos
