@@ -1,0 +1,5 @@
+sortRS.c: In function ‘main’:
+sortRS.c:159:113: error: ‘num_valores_hilo’ has invalid type for ‘reduction’
+     #pragma omp parallel private(i,j,k)  shared(Arreglo,  muestras, pivotes, numThreads, n, chunksize) reduction(+:num_valores_hilo)
+                                                                                                                 ^
+Ordenamiento Regular Sampling
