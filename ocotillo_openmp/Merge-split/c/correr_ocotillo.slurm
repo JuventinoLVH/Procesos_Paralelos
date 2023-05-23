@@ -73,7 +73,7 @@ echo -e "----------------------------------------------------------------\n"
 #-------------------------- Ejecucion algoritmos ----------------------------
 #----------------------------------------------------------------------------
 echo "----------------- Generando datos :: $HORA ----------------"
-./ejecutar_generar.exe 'datos' $tamano_muestra >> $archivo_resultados
+./ejecutar_generar.exe 'datos.bin' $tamano_muestra >> $archivo_resultados
 
 echo -e "\v > Inicia la corrida de ejecutables"
 #------------------------------- Secuencial ---------------------------------
