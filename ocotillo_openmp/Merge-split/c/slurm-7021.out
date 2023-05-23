@@ -1,0 +1,36 @@
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Ejecucion con los parametros requeridos en la tarea
+ > ID de los resultados: 22.05.2023-16_51_53
+	•Tamano muesstra: '5000000'
+	•Numero de hilos: '16'
+	•Resultados en: 'r_22.05.2023-16_51_53.bin'
+======================= Compilando archivos :: 16:51:53 =======================
+_______________ Compilando el archivo secuencial _______________
+----------------------------------------------------------------
+
+________________ Compilando el archivo paralelo ________________
+----------------------------------------------------------------
+
+________________ Compilando el archivo de datos ________________
+----------------------------------------------------------------
+
+----------------- Generando datos :: 16:51:53 ----------------
+ > Inicia la corrida de ejecutables
+--------------- corrida secuencial :: 16:51:54 ---------------
+~~~~~~~~~~~~~ Ejecucion con 1 hilos :: 16:51:55 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 2 hilos :: 16:51:56 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 3 hilos :: 16:51:57 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 4 hilos :: 16:51:58 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 5 hilos :: 16:51:59 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 6 hilos :: 16:52:00 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 7 hilos :: 16:52:00 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 8 hilos :: 16:52:01 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 9 hilos :: 16:52:02 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 10 hilos :: 16:52:03 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 11 hilos :: 16:52:03 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 12 hilos :: 16:52:04 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 13 hilos :: 16:52:05 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 14 hilos :: 16:52:05 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 15 hilos :: 16:52:06 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 16 hilos :: 16:52:07 ~~~~~~~~~~~~~
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
