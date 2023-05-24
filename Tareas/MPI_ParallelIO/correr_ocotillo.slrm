@@ -34,10 +34,8 @@ fi
 # El ID  de la corrida es el time stamp
 time_stamp=`date +"%d_%m_%Y_%H%M%S"`   
 archivo_resultados_qs="rqs_$time_stamp.bin"
-archivo_resultados_ms="rms_$time_stamp.bin"
-archivo_resultados_hq="rhq_$time_stamp.bin"
 archivo_resultados_rs="rrs_$time_stamp.bin"
-
+archivo_resultados_ms="rms_$time_stamp.bin"
 
 #Se imprime en pantalla la informacion pertinente
 echo "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
@@ -46,9 +44,9 @@ echo " > ID de los resultados: $time_stamp"
 echo -e "\t•Tamano muesstra: '$tamano_muestra'"
 echo -e "\t•Numero de hilos: '$numero_hilos'"
 echo -e "\t•Resultados en: '$archivo_resultados_qs'"
-echo -e "\t\t: '$archivo_resultados_ms'"
-echo -e "\t\t: '$archivo_resultados_hq'"
 echo -e "\t\t: '$archivo_resultados_rs'"
+echo -e "\t\t: '$archivo_resultados_ms'"
+
 
 
 #----------------------------------------------------------------------------
@@ -58,20 +56,17 @@ HORA=`date +"%H:%M"`
 echo -e "\v======================= Compilando archivos :: $HORA ======================="
 
 echo "_______________ Compilando el archivo secuencial _______________"
-mpicc ./secuencial_qs.c -o ejecucion_secuencial.exe
+mpicc ./secuencial_qs.c -o ejecucion_secuencial_qs.exe
 echo -e "----------------------------------------------------------------\n"
 
-echo "__________________ Compilando: paralelo_hq.c ___________________"
-mpicc ./paralelo_hq.c -o ejecucion_paralela_hq.exe -lm
+echo "____________________ Compilando: paralelo.rs __________________"
+mpicc ./paralelo_rs.c -o ejecucion_paralela_rs.exe -lm
 echo -e "----------------------------------------------------------------\n"
 
-echo "__________________ Compilando: paralelo_ms.c ___________________"
+echo "___________________ Compilando: paralelo_ms ___________________"
 mpicc ./paralelo_ms.c -o ejecucion_paralela_ms.exe -lm
 echo -e "----------------------------------------------------------------\n"
 
-echo "__________________ Compilando: paralelo_rs.c ___________________"
-mpicc ./paralelo_rs.c -o ejecucion_paralela_rs.exe -lm
-echo -e "----------------------------------------------------------------\n"
 
 echo "________________ Compilando el archivo de datos ________________"
 gcc generar_numeros.c -o generar.exe
@@ -87,21 +82,9 @@ echo -e "\v > Inicia la corrida de ejecutables"
 #------------------------------- Secuencial ---------------------------------
 HORA=`date +"%H:%M"`
 echo "--------------- corrida secuencial :: $HORA ---------------"
-./ejecucion_secuencial.exe datos.bin >> $archivo_resultados_qs
+./ejecucion_secuencial_qs.exe datos.bin >> $archivo_resultados_qs
 
-#-------------------------------- Paralelo:HQ ---------------------------------
-echo "^^^^^^^^^^^^^^^^^^^^ HyperQuickSort ^^^^^^^^^^^^^^^^^^^^^^^"
-for i in $(seq 1 4)
-do
-    np=$((2**$i))
-    HORA=`date +"%H:%M"`
-    echo "~~~~~~~~~~~~~ Ejecucion con $i hilos :: $HORA ~~~~~~~~~~~~~"
-    # Coya mpirun --allow-run-root  --oversubscribe -np=$i ./ejecucion_paralela.exe datos >> $archivo_resultados
-    mpirun  -np=$np ./ejecucion_paralela_hq.exe datos.bin >> $archivo_resultados_hq
-done
-
-#-------------------------------- Paralelo:RS ---------------------------------
-echo "^^^^^^^^^^^^^^^^^^^^^ Regular Sampling ^^^^^^^^^^^^^^^^^^^^^^^^"
+#-------------------------------- Paralelos ---------------------------------
 for i in $(seq 1 $numero_hilos)
 do
     HORA=`date +"%H:%M"`
@@ -110,8 +93,6 @@ do
     mpirun  -np=$i ./ejecucion_paralela_rs.exe datos.bin >> $archivo_resultados_rs
 done
 
-#-------------------------------- Paralelo:MS ---------------------------------
-echo "^^^^^^^^^^^^^^^^^^^^^^^^ Merge Split ^^^^^^^^^^^^^^^^^^^^^^^^^"
 for i in $(seq 1 $numero_hilos)
 do
     HORA=`date +"%H:%M"`

@@ -1,0 +1,36 @@
+	 Intel oneAPI 2021
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+ > Bitacora: Ejecucion con los parametros requeridos en la tarea
+ > ID de los resultados: 23_05_2023_185106
+	•Tamano muesstra: '5000000'
+	•Numero de hilos: '16'
+	•Resultados en: 'r_23_05_2023_185106.bin'
+======================= Compilando archivos :: 18:51 =======================
+_______________ Compilando el archivo secuencial _______________
+----------------------------------------------------------------
+
+________________ Compilando el archivo paralelo ________________
+----------------------------------------------------------------
+
+________________ Compilando el archivo de datos ________________
+----------------------------------------------------------------
+
+ > Inicia la corrida de ejecutables
+--------------- corrida secuencial :: 18:51 ---------------
+~~~~~~~~~~~~~ Ejecucion con 1 hilos :: 18:51 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 2 hilos :: 18:51 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 3 hilos :: 18:51 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 4 hilos :: 18:51 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 5 hilos :: 18:51 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 6 hilos :: 18:51 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 7 hilos :: 18:51 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 8 hilos :: 18:52 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 9 hilos :: 18:52 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 10 hilos :: 18:52 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 11 hilos :: 18:52 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 12 hilos :: 18:52 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 13 hilos :: 18:52 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 14 hilos :: 18:52 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 15 hilos :: 18:52 ~~~~~~~~~~~~~
+~~~~~~~~~~~~~ Ejecucion con 16 hilos :: 18:52 ~~~~~~~~~~~~~
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Ejecuccion terminada ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░

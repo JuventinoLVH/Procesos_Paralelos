@@ -58,6 +58,6 @@ void main(int argc, char*argv[]) {
     for( i=0; i<n; i++ )
         printf("%d, ",numbers[i]);*/
   
-    printf("\n %.10f", seconds);
+    printf("1, %.10f, 0 \n", seconds);
     return;
 }
