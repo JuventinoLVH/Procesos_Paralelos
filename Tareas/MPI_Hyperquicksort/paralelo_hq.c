@@ -10,6 +10,7 @@ int compare(const void *_a, const void *_b);
 void separarSublistas_Pivote(int *bloque, unsigned int *cantMen, int **subMenor, unsigned int *cantMay, int **subMayor, unsigned int n, int pivote, int id, int iteracion);
 int read_array(char* fname, int **arr, int np) ;
 
+#define BLOCK_LOW(id,p,n) ((id)*(n)/(p))
 #define BLOCK_HIGH(id,p,n) (BLOCK_LOW((id)+1,p,n)-1)
 #define BLOCK_SIZE(id,p,n)(BLOCK_HIGH(id,p,n)-BLOCK_LOW(id,p,n)+1)
 //  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■

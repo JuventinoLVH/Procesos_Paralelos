@@ -81,8 +81,8 @@ echo -e "----------------------------------------------------------------\n"
 #-------------------------- Ejecucion algoritmos ----------------------------
 #----------------------------------------------------------------------------
 echo "----------------- Generando datos :: $HORA ----------------"
-./ejecutar_generar.exe datos.bin $tamano_muestra >> $archivo_resultados
-
+./ejecutar_generar.exe datos.bin $tamano_muestra 
+ 
 echo -e "\v > Inicia la corrida de ejecutables"
 #------------------------------- Secuencial ---------------------------------
 HORA=`date +"%H:%M:%S"`

@@ -1,3 +1,0 @@
-Hay 32463 parejas de números primos gemelos menores o iguales que 5000000
-
-Tiempo =  0.1025470000, Gem: 32463 

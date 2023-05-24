@@ -1,6 +1,0 @@
-
-Hay 348513 números primos menores o iguales que 5000000
-
-EL maximo gap es 154
-
-Tiempo =  0.1388740000 

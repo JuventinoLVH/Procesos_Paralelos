@@ -67,11 +67,11 @@ echo -e "----------------------------------------------------------------\n"
 
 echo "__________________ Compilando: paralelo_ms.c ___________________"
 mpicc ./paralelo_ms.c -o ejecucion_paralela_ms.exe -lm
-echo -e "----------------------------------------------------------------\
+echo -e "----------------------------------------------------------------\n"
 
 echo "__________________ Compilando: paralelo_rs.c ___________________"
 mpicc ./paralelo_rs.c -o ejecucion_paralela_rs.exe -lm
-echo -e "----------------------------------------------------------------\
+echo -e "----------------------------------------------------------------\n"
 
 echo "________________ Compilando el archivo de datos ________________"
 gcc generar_numeros.c -o generar.exe

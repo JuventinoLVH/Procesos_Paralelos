@@ -1,2 +1,0 @@
-Ordenamiento Regular Sampling
-/var/spool/slurm/job01599/slurm_script: line 15: 111598 Segmentation fault      (core dumped) ./ordenaRS $i datos_10M.dat >> tiempos.txt

@@ -160,8 +160,8 @@ int main (int argc, char *argv[]) {
     if(!id) printf("\nTablero Inicial\n");
     print_game((void **) a, mpitype, m, n, MPI_COMM_WORLD);
 
-    j = 0; // contador auxiliar para k
-    for (int i = 0; i < iterations; i++) {
+    j = 0; 
+    for (i = 0; i < iterations; i++) {
         game_of_life_iteration(a, m, n, MPI_COMM_WORLD); //Se realiza una iteracion del juego de la vida.
         j++;
 

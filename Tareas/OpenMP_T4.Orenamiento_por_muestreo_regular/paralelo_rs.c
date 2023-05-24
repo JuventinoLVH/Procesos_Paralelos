@@ -83,7 +83,7 @@ int read_array(char* fname, int **arr, int np) {
     return n;
 }
 //  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-float main(int argc, char**argv) {
+int main(int argc, char**argv) {
     int  faltantes;
     unsigned int n, chunksize, i,j,k;
     double start_time, current_time, elapsed_time; 

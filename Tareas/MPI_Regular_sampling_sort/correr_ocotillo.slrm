@@ -82,7 +82,7 @@ echo -e "\v > Inicia la corrida de ejecutables"
 #------------------------------- Secuencial ---------------------------------
 HORA=`date +"%H:%M"`
 echo "--------------- corrida secuencial :: $HORA ---------------"
-./ejecucion_secuencial.exe datos.bin >> $archivo_resultados_qs
+./ejecucion_secuencial_qs.exe datos.bin >> $archivo_resultados_qs
 
 #-------------------------------- Paralelos ---------------------------------
 for i in $(seq 1 $numero_hilos)

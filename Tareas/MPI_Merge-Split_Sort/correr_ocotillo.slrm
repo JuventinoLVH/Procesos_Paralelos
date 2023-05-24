@@ -53,11 +53,11 @@ HORA=`date +"%H:%M"`
 echo -e "\v======================= Compilando archivos :: $HORA ======================="
 
 echo "_______________ Compilando el archivo secuencial _______________"
-mpicc ./secuencial.c -o ejecucion_secuencial.exe
+mpicc ./secuencial_qs.c -o ejecucion_secuencial.exe
 echo -e "----------------------------------------------------------------\n"
 
 echo "________________ Compilando el archivo paralelo ________________"
-mpicc ./paralelo.c -o ejecucion_paralela.exe -lm
+mpicc ./paralelo_ms.c -o ejecucion_paralela.exe -lm
 echo -e "----------------------------------------------------------------\n"
 
 echo "________________ Compilando el archivo de datos ________________"
