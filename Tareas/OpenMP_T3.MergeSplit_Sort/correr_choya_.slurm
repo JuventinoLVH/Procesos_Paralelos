@@ -1,17 +1,11 @@
 #!/bin/bash
 # Autor: Luis Juventino Velasquez Hidalgo
-# Fecha: 2/19/2023
-#   Archivo para mostrar la diferencia entre los tiempos del programa
 
-#SBATCH --nodes=1
-#SBATCH --job-name=MPI
-#SBATCH --ntasks=16
-#SBATCH --time=01:00:00
-#SBATCH --partition=general
-#SBATCH --constraint=broadwell
-#SBATCH --mem-per-cpu=3200
+#SBATCH --nodes=5           
+#SBATCH --job-name=OpenMP    
+#SBATCH --ntasks-per-node=4
+#SBATCH --time=1:00:00
 
-module load intel/oneAPI-2021
 #----------------------------------------------------------------------------
 #------------------------ Variables de entorno ------------------------------
 #----------------------------------------------------------------------------
@@ -19,21 +13,22 @@ if [[ $# != 3 ]]
 then
     mensaje="Ejecucion con los parametros requeridos en la tarea"
     numero_hilos=16
-    tamano_muestra=5000000
+    tamano_muestra=10000000
+
     
 else
+#Primero mensaje, despues el tamano y por ultimo, la cantidad de hilos
     mensaje=$1  
     tamano_muestra=$2
     numero_hilos=$3
 fi
 
-
 #----------------------------------------------------------------------------
 #------------------------ Informacion de ejecucion --------------------------
 #----------------------------------------------------------------------------
 # El ID  de la corrida es el time stamp
-time_stamp=`date +"%d_%m_%Y_%H%M%S"`   
-archivo_resultados="r_$time_stamp"
+time_stamp=`date +"%d.%m.%Y-%H_%M_%S"`   
+archivo_resultados="r_$time_stamp.bin"
 
 #Se imprime en pantalla la informacion pertinente
 echo "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
@@ -44,44 +39,45 @@ echo -e "\t•Numero de hilos: '$numero_hilos'"
 echo -e "\t•Resultados en: '$archivo_resultados'"
 
 
-
 #----------------------------------------------------------------------------
 #------------------------ Compilacion de archivos ---------------------------
 #----------------------------------------------------------------------------
-HORA=`date +"%H:%M"`
+HORA=`date +"%H:%M:%S"`
 echo -e "\v======================= Compilando archivos :: $HORA ======================="
 
+
 echo "_______________ Compilando el archivo secuencial _______________"
-mpicc ./secuencial.c -o ejecucion_secuencial.exe
+g++ ./secuencial.c -fopenmp -o ejecucion_secuencial.exe 
 echo -e "----------------------------------------------------------------\n"
 
 echo "________________ Compilando el archivo paralelo ________________"
-mpicc ./paralelo.c -o ejecucion_paralela.exe -lm
+g++ ./paralelo.c -fopenmp -o ejecucion_paralela.exe
 echo -e "----------------------------------------------------------------\n"
 
 echo "________________ Compilando el archivo de datos ________________"
-gcc generar_numeros.c -o generar.exe
+g++ generar_numeros.c -o ejecutar_generar.exe
 echo -e "----------------------------------------------------------------\n"
+
 
 
 #----------------------------------------------------------------------------
 #-------------------------- Ejecucion algoritmos ----------------------------
 #----------------------------------------------------------------------------
-echo -e "\v > Inicia la corrida de ejecutables"
-./generar.exe datos $tamano_muestra
+echo "----------------- Generando datos :: $HORA ----------------"
+./ejecutar_generar.exe 'datos.bin' $tamano_muestra >> $archivo_resultados
 
+echo -e "\v > Inicia la corrida de ejecutables"
 #------------------------------- Secuencial ---------------------------------
-HORA=`date +"%H:%M"`
+HORA=`date +"%H:%M:%S"`
 echo "--------------- corrida secuencial :: $HORA ---------------"
-./ejecucion_secuencial.exe datos >> $archivo_resultados
+./ejecucion_secuencial.exe 'datos' >> $archivo_resultados
 
 #-------------------------------- Paralelos ---------------------------------
 for i in $(seq 1 $numero_hilos)
 do
-    HORA=`date +"%H:%M"`
+    HORA=`date +"%H:%M:%S"`
     echo "~~~~~~~~~~~~~ Ejecucion con $i hilos :: $HORA ~~~~~~~~~~~~~"
-    # Coya mpirun --allow-run-root  --oversubscribe -np=$i ./ejecucion_paralela.exe datos >> $archivo_resultados
-    mpirun  -np=$i ./ejecucion_paralela.exe datos >> $archivo_resultados
+    ./ejecucion_paralela.exe $i 'datos' >> $archivo_resultados
 done
 
 

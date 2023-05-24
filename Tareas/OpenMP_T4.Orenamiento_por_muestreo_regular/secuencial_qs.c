@@ -2,6 +2,18 @@
 #include <stdlib.h>
 #include <time.h>
 
+char Comprobar(int *arreglo, int tamano)
+{
+    int i;
+    for(i=1 ; i < tamano ; ++i)
+    {
+        if(arreglo[i-1] > arreglo[i])
+        {
+            return 'E';
+        }
+    }
+    return 's';
+}
 
 int read_array(char* fname, int **arr) {
     FILE *myFile;
@@ -31,32 +43,18 @@ int main(int argc, char*argv[]) {
 
     int *numbers;
     int n, i;
-    float seconds;
-  
-    
+    float seconds;    
     n = read_array(argv[1], &numbers);
 
-    //printf("\n Núm de datos = %d",n);
-   /* printf("\n Desordenados-->");
-    for( i=0; i<n; i++ )
-        printf("%d, ",numbers[i]);*/
-
+    
     clock_t start = clock();
-        qsort(numbers, n, sizeof(int), funcionQueCompara);
+    
+    int rep;
+    qsort(numbers, n, sizeof(int), funcionQueCompara);
+    
     seconds = (float)(clock() - start) / CLOCKS_PER_SEC;
 
-    /* Comprobación de ordenamiento bien realizado */
-    for (i = 0; i < n-1; i ++){
-        if (numbers[i] > numbers[i+1]){
-            printf("ERROR: Hay un par mal ordenado !!!!!");
-            return -1;
-        }
-    }  
 
-   /* printf("\n Ordenados-->\t");
-    for( i=0; i<n; i++ )
-        printf("%d, ",numbers[i]);*/
-  
-    printf("%.10f", seconds);
+    printf("1, %.10f ,%c\n", seconds, Comprobar(numbers,n));
     return 0;
 }

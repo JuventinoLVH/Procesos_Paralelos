@@ -10,6 +10,8 @@ int compare(const void *_a, const void *_b);
 void separarSublistas_Pivote(int *bloque, unsigned int *cantMen, int **subMenor, unsigned int *cantMay, int **subMayor, unsigned int n, int pivote, int id, int iteracion);
 int read_array(char* fname, int **arr, int np) ;
 
+
+#define BLOCK_LOW(id,p,n) ((id)*(n)/(p))
 #define BLOCK_HIGH(id,p,n) (BLOCK_LOW((id)+1,p,n)-1)
 #define BLOCK_SIZE(id,p,n)(BLOCK_HIGH(id,p,n)-BLOCK_LOW(id,p,n)+1)
 //  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
@@ -24,7 +26,10 @@ int main(int argc,char *argv[]){
     unsigned int n, i, j, n_local, *displs, *sendcounts,*recvcounts,*sdispls, ndatos_recv;
     MPI_Comm comm_topologia_hipercubo, comm_sub_hipercubo, comm_sub_hipercubo2;
     double start, time;	
-
+    MPI_Offset  *offset;
+    MPI_Status  status;
+    MPI_File fh;
+    
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &np); // Numero total de procesos
     MPI_Comm_rank(MPI_COMM_WORLD, &id); // Valor de nuestro identificador
@@ -48,37 +53,34 @@ int main(int argc,char *argv[]){
         printf( "\nERROR: Con dimension %d, Se requieren al menos %d procesos \n\n", ND, nprocesos_minimo );
         MPI_Abort( MPI_COMM_WORLD, 2 );
     }
-    //printf("Leer \n");
-    root = 0;
-    if (id == root) { // Lee los datos del archivo
-        n = read_array(argv[1], &datos, np);
-    }
 
     MPI_Cart_create( MPI_COMM_WORLD, ND, dimensiones, periodicos, 1, &comm_topologia_hipercubo );
 
     if( comm_topologia_hipercubo != MPI_COMM_NULL ){
         MPI_Comm_rank(comm_topologia_hipercubo, &idCart);
         MPI_Comm_size(comm_topologia_hipercubo, &pCart);
-
-        MPI_Bcast(&n, 1, MPI_UNSIGNED, root, comm_topologia_hipercubo);
-        //printf("Distribucion \n");
-        //  --Distribución de los datos--
-        n_local = BLOCK_SIZE(idCart,pCart,n);
         
-        bloque = (int *) malloc(n_local*sizeof(int)); if (bloque == NULL) {printf("Memoria insuficiente (bloque)\n");MPI_Abort(MPI_COMM_WORLD, 99);}
-        sendcounts = (unsigned int*) malloc(pCart*sizeof(unsigned int));    if( sendcounts == NULL ){ printf("ERROR: Memoria insuficiente! (sendcounts)\n");    MPI_Abort(comm_topologia_hipercubo, 99);  }
-        sdispls = (unsigned int*) malloc(pCart*sizeof(unsigned int));    if( sdispls    == NULL ){ printf("ERROR: Memoria insuficiente! (sdispls)\n");       MPI_Abort(comm_topologia_hipercubo, 99); }
+        //Parallel IO
+        offset = (MPI_Offset*)malloc(np*sizeof(MPI_Offset));if(offset==NULL){ printf("\n ERROR: No hay memoria suficiente (offset)"); MPI_Abort(MPI_COMM_WORLD, 99); }
+        MPI_File_open( comm_topologia_hipercubo, argv[1], MPI_MODE_RDONLY, MPI_INFO_NULL  , &fh );
+            MPI_File_read_all(fh, &n, 1, MPI_INT, &status);
 
-        if(idCart == root){
-            for( i = 0 ; i < pCart; i++ )
-                sendcounts[i]=BLOCK_SIZE(i,pCart,n);
+            offset[0] = sizeof(int); // <--- se salta el valor n 
+            for( i = 1 ; i < np ; i++ ) 
+                offset[i] = offset[i-1] + BLOCK_SIZE( i-1, np, n )*sizeof(int);
+
+            n_local = BLOCK_SIZE( idCart, pCart, n );
+
+            bloque = (int*)malloc(n_local*sizeof(int)); if( bloque == NULL ){ printf("\n ERROR: No hay memoria suficiente (buffer)"); MPI_Abort(MPI_COMM_WORLD, 99); }
             
-            sdispls[0] = 0;
-            for( i = 1 ; i < pCart; i++ )  
-                sdispls[i] = sdispls[i-1] + sendcounts[i-1];
-        }
+            MPI_File_read_at_all(fh, offset[id], bloque, n_local, MPI_INT, &status); 
 
-        MPI_Scatterv( datos, sendcounts, sdispls, MPI_INT, bloque, n_local, MPI_INT, root, comm_topologia_hipercubo );
+        MPI_File_close(&fh);
+        datos = (int *) malloc( n * sizeof(int) );
+        if (datos == NULL) {
+            printf("Memoria insuficiente (datos)\n");
+            MPI_Abort(MPI_COMM_WORLD, 99);
+        }
 
         //  --Ordenamiento QSort Local--
         qsort(bloque, n_local, sizeof(int), compare);

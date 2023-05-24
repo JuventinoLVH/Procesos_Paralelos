@@ -39,7 +39,6 @@ fi
 time_stamp=`date +"%d.%m.%Y-%H_%M_%S"`   
 archivo_resultados_qs="rqs_$time_stamp.bin"
 archivo_resultados_ms="rms_$time_stamp.bin"
-archivo_resultados_rs="rrs_$time_stamp.bin"
 
 #Se imprime en pantalla la informacion pertinente
 echo "▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ Iniciando ejecuccion ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒"
@@ -49,7 +48,6 @@ echo -e "\t•Tamano muesstra: '$tamano_muestra'"
 echo -e "\t•Numero de hilos: '$numero_hilos'"
 echo -e "\t•Resultados en: '$archivo_resultados_qs'"
 echo -e "\t\t: '$archivo_resultados_ms'"
-echo -e "\t\t: '$archivo_resultados_rs'"
 
 
 #----------------------------------------------------------------------------
@@ -64,11 +62,7 @@ g++ ./secuencial_qs.c -fopenmp -o ejecucion_secuencial.exe
 echo -e "----------------------------------------------------------------\n"
 
 echo "________________ Compilando el archivo paralelo ________________"
-g++ ./paralelo_rs.c -fopenmp -o ejecucion_paralela_rs.exe
-echo -e "----------------------------------------------------------------\n"
-
-echo "________________ Compilando el archivo paralelo ________________"
-g++ ./paralelo_ms.c -fopenmp -o ejecucion_paralela_ms.exe
+g++ ./paralelo_ms.c -fopenmp -o ejecucion_paralela.exe
 echo -e "----------------------------------------------------------------\n"
 
 echo "________________ Compilando el archivo de datos ________________"
@@ -81,7 +75,7 @@ echo -e "----------------------------------------------------------------\n"
 #-------------------------- Ejecucion algoritmos ----------------------------
 #----------------------------------------------------------------------------
 echo "----------------- Generando datos :: $HORA ----------------"
-./ejecutar_generar.exe datos.bin $tamano_muestra >> $archivo_resultados
+./ejecutar_generar.exe datos.bin $tamano_muestra 
 
 echo -e "\v > Inicia la corrida de ejecutables"
 #------------------------------- Secuencial ---------------------------------
@@ -89,24 +83,14 @@ HORA=`date +"%H:%M:%S"`
 echo "--------------- corrida secuencial :: $HORA ---------------"
 ./ejecucion_secuencial.exe datos.bin >> $archivo_resultados_qs
 
-#-------------------------------- Paralelo:RS ---------------------------------
-echo "^^^^^^^^^^^^^^^^^^^^ Regular Sampling ^^^^^^^^^^^^^^^^^^^^^"
+#-------------------------------- Paralelos ---------------------------------
 for i in $(seq 1 $numero_hilos)
 do
     HORA=`date +"%H:%M:%S"`
     echo "~~~~~~~~~~~~~ Ejecucion con $i hilos :: $HORA ~~~~~~~~~~~~~"
-    ./ejecucion_paralela_rs.exe $i datos.bin >> $archivo_resultados_rs
+    ./ejecucion_paralela.exe $i datos.bin >> $archivo_resultados_ms
 done
 
-
-#-------------------------------- Paralelo:MS ---------------------------------
-echo "^^^^^^^^^^^^^^^^^^^^ Merge Split ^^^^^^^^^^^^^^^^^^^^^"
-for i in $(seq 1 $numero_hilos)
-do
-    HORA=`date +"%H:%M:%S"`
-    echo "~~~~~~~~~~~~~ Ejecucion con $i hilos :: $HORA ~~~~~~~~~~~~~"
-    ./ejecucion_paralela_ms.exe $i datos.bin >> $archivo_resultados_ms
-done
 
 #----------------------------------------------------------------------------
 #----------------------------- Fin del archivo ------------------------------

@@ -1,14 +1,30 @@
+#include <time.h>
 #include <stdlib.h>
 #include <omp.h>
 #include <stdio.h>
 #include <math.h> // ceil()
 #include <limits.h> // INT_MAX 
 
+
 #define BLOCK_LOW(id, p, n) ((id) * (n) / (p))
 #define BLOCK_HIGH(id, p, n) (BLOCK_LOW((id) + 1, (p), (n)) - 1)
 #define BLOCK_SIZE(id, p, n) (BLOCK_HIGH((id), (p), (n)) - BLOCK_LOW((id), (p), (n)) + 1)
 #define MIN(i, j) (((i) < (j)) ? (i) : (j))
 #define MAX(i, j) (((i) > (j)) ? (i) : (j))
+
+char Comprobar(int *arreglo, int tamano)
+{
+    int i;
+    for(i=1 ; i < tamano ; ++i)
+    {
+        if(arreglo[i-1] > arreglo[i])
+        {
+            return 'E';
+        }
+    }
+    return 's';
+}
+
 //  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 int funcionQueCompara(const void *a, const void *b) {
     // Castear a enteros
@@ -98,13 +114,13 @@ int main(int argc, char**argv) {
     chunksize = ceil(n*1.0 / numThreads);
     faltantes = numThreads*chunksize - n;    
 
-/*  printf("\nArreglo = {");
+    /*printf("\nArreglo = {");
     for(i=0;i<n;i++)
         printf("%d, ", Arreglo[i]);
-    printf("}\n");
+    printf("}\n");*/
 
-    printf("n=%d, chunksize=%d, faltantes=%d \n",n, chunksize, faltantes);
-*/
+    //printf("n=%d, chunksize=%d, faltantes=%d \n",n, chunksize, faltantes);
+
     start_time = omp_get_wtime();                       //■■■■■■■■■■■■■■■■■■■■■■■ <--- toma de tiempo 1
 
     #pragma omp parallel private(i,j,k,S_i,auxiliar) firstprivate(n,chunksize) shared(Arreglo,numThreads)
@@ -124,10 +140,12 @@ int main(int argc, char**argv) {
 
         // cada quien copia en S_i sus chunksize valores
         for( i = ind_low, j=0 ; i <= ind_high ; i++, j++)
-            S_i[j] = Arreglo[i];       
+            S_i[j] = Arreglo[i];    
 
-        for(i=1;i<=ceil(numThreads/2.0);i++){
-            if(id_thread%2==0 && id_thread!=numThreads-1) {   
+        #pragma omp barrier // <------ faltaba esta barrera 
+
+        for( i = 1; i <= ceil(numThreads/2.0) ; i++ ){
+            if( id_thread % 2 == 0 && id_thread != numThreads - 1 ) {   
                 for( k = ind_high+1, j = chunksize ; j<2*chunksize ; k++,j++ ){
                     S_i[j] = Arreglo[k];
                    // printf("%d, ",S_i[j]);
@@ -164,12 +182,17 @@ int main(int argc, char**argv) {
     current_time = omp_get_wtime();                     //■■■■■■■■■■■■■■■■■■■■■■■ <--- toma de tiempo 2
 
     elapsed_time = current_time - start_time; 
-    printf("\%d,  %.10f \n",numThreads, elapsed_time); 
 
-    /*printf("\nArreglo = {");
-    for(i=0;i<n;i++)
-        printf("%d, ", Arreglo[i]);
-    printf("}");*/
+    /* Comprobación de ordenamiento bien realizado */
+    int ind = 0;
+    for (i = 0; i < n-1; i ++){
+        if (Arreglo[i] > Arreglo[i+1]){
+            ind = 1;
+            break;
+        }
+    }      
+    printf("%5d, %14.10f, %7d \n",numThreads, elapsed_time, ind); 
+
 
     return elapsed_time;
 }
